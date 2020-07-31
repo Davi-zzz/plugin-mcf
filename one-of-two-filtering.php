@@ -192,7 +192,7 @@ class dixbpo_filter_solution
             <script>
             $(document).ready(function() {
                 var x = $('#filter_result').get();
-               
+                x.css('background-color','yellow');
                 $(x).appendTo('#teste1234');
 
             });
