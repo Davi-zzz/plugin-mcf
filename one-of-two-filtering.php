@@ -149,25 +149,33 @@ class dixbpo_filter_solution
             <?php
         } else {
             ?>
-                           
 
-                             <div id="filter_result" class="entry-content post-inner thin ">
 
-                             <form method="POST">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+                integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+                crossorigin="anonymous"></script>
 
-                             <div id="filter_fields">
-                                <input name="receive-text" type="text" placeholder="digite aqui..." />
-                                <label for="name">Nome</label>
-                                <input type="radio" id="name" name="select-filter" value="1">
-                                <label for="chair">Cadeira</label>
-                                <input type="radio" id="chair" name="select-filter" value="2">
-                                <label for="position">Posição</label>
-                                <input type="radio" id="position" name="select-filter" value="3">                
-                                <button type="submit">Aplicar</button>
-                            </div>
+            <script>
+            $(document).ready(function() {
+                // var x = $('#filter_result').get();
+               
+                $('<div id="filter_result" class="entry-content post-inner thin">'+
+                    '<form method="POST">'+
 
-                             <div id="flex_Image">
-                                 <?php foreach ($array as $key => $value) {
+                '<div id="filter_fields">'+
+                    '<input name="receive-text" type="text" placeholder="digite aqui..." />'+
+                    '<label for="name">Nome</label>'+
+                    '<input type="radio" id="name" name="select-filter" value="1">'+
+                    '<label for="chair">Cadeira</label>'+
+                    '<input type="radio" id="chair" name="select-filter" value="2">'+   
+                    '<label for="position">Posição</label>'+
+                    '<input type="radio" id="position" name="select-filter" value="3">'+                
+                    '<button type="submit">Aplicar</button>'+
+                '</div>'+
+
+                '<div id="flex_Image">'+  '
+
+            <?php foreach ($array as $key => $value) {
                 echo '<div>';
                 $aux = str_replace('#038;', '', $array[$key]->guid);
                 echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(120,200))."</a></p>";
@@ -177,23 +185,9 @@ class dixbpo_filter_solution
                 echo  $array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes;
                 echo '</p>';
                 echo '</div>';
-            } ?>
-                    </div>
-
-                      
-                </form>
-            
-        </div>
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-                integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-                crossorigin="anonymous"></script>
-
-            <script>
-            $(document).ready(function() {
-                var x = $('#filter_result').get();
-               
-                $(x).appendTo('#teste1234');
+            } ?> '+'</div>'+          
+            '</form>'+
+            '</div>').appendTo('#teste1234');
 
             });
             </script>
