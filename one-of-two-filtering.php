@@ -160,9 +160,7 @@ class dixbpo_filter_solution
                                     flex: 1 1 200px;
                                     margin: 10px;
                                 }
-                                #flex_Image{
-                                    display: flex;
-                                }
+                             
                                 
                             </style>
 
@@ -174,7 +172,7 @@ class dixbpo_filter_solution
                                     echo '<div>';
                                     $aux = str_replace('#038;', '', $array[$key]->guid);
                                     echo "<a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a>";
-                                    echo '<a href="'.$aux.'">'.$array[$key]->post_title.'</a>';
+                                    echo '<p><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
                                     echo '<p>'.$array[$key]->posicaocadeira.'</p>';
                                     echo '<p>'.$array[$key]->posicoes.'</p>';
                                     echo '</div>';
