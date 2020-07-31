@@ -29,7 +29,7 @@ class dixbpo_filter_solution
         
         // echo $mypost_id;
             
-        if ($mypost_id != 0) {
+        if ($mypost_id == 450) {
             $input = isset($_POST['receive-text']) ? $_POST['receive-text'] : '';
             $input2 = isset($_POST['select-filter']) ? $_POST['select-filter'] : '';
             
@@ -192,8 +192,8 @@ class dixbpo_filter_solution
             <script>
             $(document).ready(function() {
                 var x = $('#filter_result').get();
-                console.log(x);
-                $(x).appendTo('.elementor-widget-wrap');
+               
+                $(x).appendTo('#teste1234');
 
             });
             </script>
