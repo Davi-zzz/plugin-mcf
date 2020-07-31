@@ -251,13 +251,29 @@ class dixbpo_filter_solution
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
                     $query->the_post(); ?>
+                            <style>
+                                #filter_results{
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    max-width: 800px;
+
+                                }
+                                #filter_results > div{
+                                    flex: 1 1 200px;
+                                    margin: 10px;
+                                }
+                                
+                            </style>
+
                              <div id="filter_result" class="entry-content post-inner thin ">
+
                              <form method="POST">
                                  <?php foreach ($results as $key => $value) {
-
+                                    echo '<div>';
                                     $aux = str_replace('#038;', '', $results[$key]->guid);
                                     echo "<a href='".$aux."'>".get_the_post_thumbnail($results[$key]->id, array(100,100))."</a>";
                                     echo '<a href="'.$aux.'">'.$results[$key]->post_title.'</a>';
+                                    echo '</div>';
                     } ?>
 
 
