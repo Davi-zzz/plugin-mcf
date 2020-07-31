@@ -149,25 +149,31 @@ class dixbpo_filter_solution
         }else{
                 
             ?>
-            <div id="filter_result" class="entry-content post-inner thin "  style="width:100%">
-             
-                    <form method="POST">
-                    <ul style="list-style-type: none; display: flex">
-                        <?php foreach ($array as $key => $value) {
-                             echo '<li>';
-                                $aux = str_replace('#038;', '', $array[$key]->guid);
+                            <style>
+                                #filter_results{
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    max-width: 800px;
+
+                                }
+                                #filter_results > div{
+                                    flex: 1 1 200px;
+                                    margin: 10px;
+                                }
                                 
-                                echo "<a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a>";
-                                        echo "<br>";
-                              
-                                    echo '<a href="'.$aux.'">'.$array[$key]->post_title.'</a>';
+                            </style>
 
+                             <div id="filter_result" class="entry-content post-inner thin ">
 
-                            echo '</li>';    
-                          
-                        } ?>
-                
-                    </ul>
+                             <form method="POST">
+                                 <?php foreach ($results as $key => $value) {
+                                    echo '<div>';
+                                    $aux = str_replace('#038;', '', $results[$key]->guid);
+                                    echo "<a href='".$aux."'>".get_the_post_thumbnail($results[$key]->id, array(100,100))."</a>";
+                                    echo '<a href="'.$aux.'">'.$results[$key]->post_title.'</a>';
+                                    echo '</div>';
+                    } ?>
+                  
                  
                  
                             <select name="select-filter">
