@@ -48,8 +48,8 @@ class dixbpo_filter_solution
                 
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca </p>";
                     self::display_fields($results, 1);
+                    echo "<p> Não foi encontrado nenhum resultado na busca </p>";
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
@@ -70,8 +70,8 @@ class dixbpo_filter_solution
                 $results = $wpdb -> get_results($sql);
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                     self::display_fields($results, 1);
+                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
             
@@ -92,8 +92,8 @@ class dixbpo_filter_solution
                 $results = $wpdb -> get_results($sql);
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                     self::display_fields($results, 1);
+                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
@@ -113,8 +113,8 @@ class dixbpo_filter_solution
                 
                 $results = $wpdb -> get_results($sql);
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                     self::display_fields($results, 1);
+                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
@@ -220,18 +220,8 @@ class dixbpo_filter_solution
                              <div id="filter_result" class="entry-content post-inner thin ">
 
                              <form method="POST">
-                             <div id="flex_Image">
-                                 <?php foreach ($array as $key => $value) {
-                echo '<div>';
-                $aux = str_replace('#038;', '', $array[$key]->guid);
-                echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(120,200))."</a></p>";
-                echo '<p class="filter-title"><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
-                echo '<p class="filter-title">Cadeira: '.$array[$key]->cadeiras.'</p>';
-                echo '<p class="filter-title">Posição: '.$array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes.'</p>';
-                echo '</div>';
-            } ?>
-                    </div>
-                            <div id="filter_fields">
+
+                             <div id="filter_fields">
                                 <input name="receive-text" type="text" placeholder="digite aqui..." />
                                 <label for="name">Nome</label>
                                 <input type="radio" id="name" name="select-filter" value="1">
@@ -241,6 +231,21 @@ class dixbpo_filter_solution
                                 <input type="radio" id="position" name="select-filter" value="3">                
                                 <button type="submit">Aplicar</button>
                             </div>
+
+                             <div id="flex_Image">
+                                 <?php foreach ($array as $key => $value) {
+                echo '<div>';
+                $aux = str_replace('#038;', '', $array[$key]->guid);
+                echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(120,200))."</a></p>";
+                echo '<p class="filter-title"><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
+                echo '<p class="filter-title">Cadeira: '.$array[$key]->cadeiras.'</p>';
+                echo '<p class="filter-title">Posição: ';
+                echo  $array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes;
+                echo '</p>';
+                echo '</div>';
+            } ?>
+                    </div>
+
                       
                 </form>
             
