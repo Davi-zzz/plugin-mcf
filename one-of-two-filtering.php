@@ -23,8 +23,8 @@ class dixbpo_filter_solution
     {
         global $wpdb;
         global $post;
+        wp_enqueue_style( "style", plugin_dir_url(__FILE__)."/estilos/stylePlugin.css", "all");
         $var1 = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    
         $mypost_id = url_to_postid($var1);
         
         // echo $mypost_id;
@@ -128,24 +128,7 @@ class dixbpo_filter_solution
     {
         if ($tipo == 1) {
             ?>
-            <style>
-                 #filter_fields{
-                        max-width: 800px;
-                        display: flex;
-                    }
-                    #filter_fields > label{
-                      margin-top: 5px;
-
-                    }
-                    #filter_fields > input[type="radio"]{
-                        margin-top: 11px;
-                        margin-left: 4px;
-                        margin-right: 5px;
-                    } 
-                    
-
-                    
-            </style>
+            
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
                             <div id="filter_fields">
@@ -166,56 +149,7 @@ class dixbpo_filter_solution
             <?php
         } else {
             ?>
-                            <style>
-                                #flex_Image{
-                                    display: flex;
-                                    flex-wrap: wrap;
-                                    max-width: 800px;
-                                    
-
-                                }
-                                #flex_Image > div{
-                                    flex: 1 1 200px;
-                                    margin: 10px;
-                                    max-width: 200px;
-                                   
-                                }
-                                #flex_Image > div > p {
-                                    text-align: center;
-                                    font-weigth: bold;
-                                }
-                                #flex_Image > div > p > a > img {
-                                border-style: solid;
-                                border-width: 2px;
-                                border-radius: 0.2em;
-                                width: 120px;
-                                height: 200px;
-                                max-width: 120px;
-                                max-height: 200px;
-                                }
-                                #filter_fields{
-                                    max-width: 800px;
-                                    display: flex;
-                                }
-                                #filter_fields > label{
-                                    margin-top: 5px;
-
-                                }
-                                #filter_fields > input[type="radio"]{
-                                    margin-top: 11px;
-                                    margin-left: 4px;
-                                    margin-right: 5px;
-                                }
-                                #filter_fields > label{
-                                    font-weight: bold;
-                                }
-                                .filter-title{
-                                    font-weight: bold;
-                                    font-size: 18px;
-                                }
-                                
-
-                            </style>
+                           
 
                              <div id="filter_result" class="entry-content post-inner thin ">
 
