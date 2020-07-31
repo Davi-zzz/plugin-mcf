@@ -129,17 +129,24 @@ class dixbpo_filter_solution
 
         if($tipo == 1){
             ?>
+            <style>
+                 #filter_fields{
+                        max-width: 800px;
+                        display: flex;
+                    }
+            </style>
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
-                            <select name="select-filter">
-                            <option value>Selecione o Tipo de Filtro</option>
-                            <option value="1" selected>Buscar por Nome</option>
-                            <option value="2">Buscar por Cadeira</option>
-                            <option value="3">Buscar por Posição</option>
-                            </select>
-
-                            <input name="receive-text" type="text" placeholder="Filtro" />
-                            <button type="submit">Aplicar</button>
+                            <div id="filter_fields">
+                                <label for="name">Nome</label>
+                                <input type="radio" id="name" name="select-filter" value="1">
+                                <label for="chair">Cadeira</label>
+                                <input type="radio" id="chair" name="select-filter" value="2">
+                                <label for="position">Posição</label>
+                                <input type="radio" id="position" name="select-filter" value="3">                
+                                <input name="receive-text" type="text" placeholder="digite aqui..." />
+                                <button type="submit">Aplicar</button>
+                            </div>
                         
                   
                 </form>
@@ -173,7 +180,10 @@ class dixbpo_filter_solution
 
                                     
                                 }
-                             
+                                #filter_fields{
+                                    max-width: 800px;
+                                    display: flex;
+                                }
                                 
                             </style>
 
@@ -191,25 +201,16 @@ class dixbpo_filter_solution
                                     echo '</div>';
                     } ?>
                     </div>
-                            <label for="name">Nome</label>
-                            <input type="radio" id="name" name="select-filter" value="1">
-                            <label for="chair">Cadeira</label>
-                            <input type="radio" id="chair" name="select-filter" value="2">
-                            <label for="position">Posição</label>
-                            <input type="radio" id="position" name="select-filter" value="3">
-                            <!-- <select name="select-filter">
-                            <option value>Selecione o Tipo de Filtro</option>
-                            <option value="1" selected>Buscar por Nome</option>
-                            <option value="2">Buscar por Cadeira</option>
-                            <option value="3">Buscar por Posição</option>
-                            </select> -->
-                       
-                      
-                            <input name="receive-text" type="text" placeholder="Digite Aqui" />
-                        
-                        
-                            <button type="submit">Aplicar</button>
-                        
+                            <div id="filter_fields">
+                                <label for="name">Nome</label>
+                                <input type="radio" id="name" name="select-filter" value="1">
+                                <label for="chair">Cadeira</label>
+                                <input type="radio" id="chair" name="select-filter" value="2">
+                                <label for="position">Posição</label>
+                                <input type="radio" id="position" name="select-filter" value="3">                
+                                <input name="receive-text" type="text" placeholder="digite aqui..." />
+                                <button type="submit">Aplicar</button>
+                            </div>
                       
                 </form>
             
