@@ -183,9 +183,7 @@ class dixbpo_filter_solution
                                     text-align: center;
 
                                 }
-                                #flex_Image > div > img {
-                                display: block;
-                                margin 0 auto;
+                                #flex_Image > div > p > img {
                                 border: 50px, solid, #000;
                                 
 
