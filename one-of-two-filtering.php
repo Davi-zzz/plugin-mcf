@@ -154,11 +154,24 @@ class dixbpo_filter_solution
                                     display: flex;
                                     flex-wrap: wrap;
                                     max-width: 800px;
+                                    
 
                                 }
                                 #flex_Image > div{
                                     flex: 1 1 200px;
                                     margin: 10px;
+                                    max-width: 200px;
+                                   
+                                }
+                                #flex_Image > div > p {
+                                    text-align: center;
+
+                                }
+                                #flex_Image > div > img {
+                                display: block;
+                                margin 0 auto;
+
+                                    
                                 }
                              
                                 
@@ -171,7 +184,7 @@ class dixbpo_filter_solution
                                  <?php foreach ($array as $key => $value) {
                                     echo '<div>';
                                     $aux = str_replace('#038;', '', $array[$key]->guid);
-                                    echo "<a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a>";
+                                    echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a></p>";
                                     echo '<p><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
                                     echo '<p>'.$array[$key]->posicaocadeira.'</p>';
                                     echo '<p>'.$array[$key]->posicoes.'</p>';
