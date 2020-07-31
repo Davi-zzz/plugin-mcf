@@ -101,7 +101,7 @@ class dixbpo_filter_solution
                     self::display_fields($results, 2);
                 }
             } else {
-                $sql = 'SELECT DISTINCT wp_posts.id as id , imagem.guid as imagem , wp_posts.post_title, wp_posts.guid, cadeiras.meta_value,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.id as id , imagem.guid as imagem , wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras, posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                 FROM wp_posts 
                 JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                 JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -134,13 +134,14 @@ class dixbpo_filter_solution
                         display: flex;
                     }
                     #filter_fields > label{
-                        margin-top: 5px;
+                      margin-top: 5px;
+
                     }
                     #filter_fields > input[type="radio"]{
                         margin-top: 11px;
                         margin-left: 4px;
                         margin-right: 5px;
-                     } 
+                    } 
                     
 
                     
@@ -181,12 +182,16 @@ class dixbpo_filter_solution
                                 }
                                 #flex_Image > div > p {
                                     text-align: center;
-
+                                    font-weigth: bold;
                                 }
-                                #flex_Image > div > p > img {
-                                border: 50px, solid, #000;
-                                
-
+                                #flex_Image > div > p > a > img {
+                                border-style: solid;
+                                border-width: 2px;
+                                border-radius: 0.2em;
+                                width: 120px;
+                                height: 200px;
+                                max-width: 120px;
+                                max-height: 200px;
                                 }
                                 #filter_fields{
                                     max-width: 800px;
@@ -200,7 +205,15 @@ class dixbpo_filter_solution
                                     margin-top: 11px;
                                     margin-left: 4px;
                                     margin-right: 5px;
-                                } 
+                                }
+                                #filter_fields > label{
+                                    font-weight: bold;
+                                }
+                                .filter-title{
+                                    font-weight: bold;
+                                    font-size: 18px;
+                                }
+                                
 
                             </style>
 
@@ -211,10 +224,11 @@ class dixbpo_filter_solution
                                  <?php foreach ($array as $key => $value) {
                 echo '<div>';
                 $aux = str_replace('#038;', '', $array[$key]->guid);
-                echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a></p>";
-                echo '<p><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
-                echo '<p>'.$array[$key]->posicaocadeira.'</p>';
-                echo '<p>'.$array[$key]->posicoes.'</p>';
+                echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(120,200))."</a></p>";
+                echo '<p class="filter-title"><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
+                echo '<p class="filter-title">Cadeira: '.$array[$key]->cadeiras.'</p>';
+                echo '<p class="filter-title">Posição: '.$array[$key]->posicaocadeira.'</p>';
+                echo '<p class="filter-title">'.$array[$key]->posicoes.'</p>';
                 echo '</div>';
             } ?>
                     </div>
