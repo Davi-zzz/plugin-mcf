@@ -137,6 +137,9 @@ class dixbpo_filter_solution
                     #filter_fields > label{
                         margin-top: 5px;
                     }
+                    #filter_fields > input{
+                        margin-top: 5px;
+                    }
             </style>
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
@@ -188,6 +191,9 @@ class dixbpo_filter_solution
                                     display: flex;
                                 }
                                 #filter_fields > label{
+                                    margin-top: 5px;
+                                }
+                                #filter_fields > input{
                                     margin-top: 5px;
                                 }
                                 
