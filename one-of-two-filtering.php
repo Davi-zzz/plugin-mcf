@@ -148,7 +148,7 @@ class dixbpo_filter_solution
             <?php
         }else{
                 
-            ?>
+                        ?>
                             <style>
                                 #flex_Image{
                                     display: flex;
@@ -172,6 +172,8 @@ class dixbpo_filter_solution
                                     $aux = str_replace('#038;', '', $array[$key]->guid);
                                     echo "<a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a>";
                                     echo '<a href="'.$aux.'">'.$array[$key]->post_title.'</a>';
+                                    echo '<p>'.$array[$key]->posicaocadeira.'</p>';
+                                    echo '<p>'.$array[$key]->posicoes.'</p>';
                                     echo '</div>';
                     } ?>
                     </div>
