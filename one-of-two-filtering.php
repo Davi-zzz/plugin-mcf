@@ -132,13 +132,14 @@ class dixbpo_filter_solution
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
                             <div id="filter_fields">
-                                <input name="receive-text" type="text" placeholder="digite aqui..." />
                                 <label for="name">Nome</label>
                                 <input type="radio" id="name" name="select-filter" value="1">
                                 <label for="chair">Cadeira</label>
                                 <input type="radio" id="chair" name="select-filter" value="2">
                                 <label for="position">Posição</label>
-                                <input type="radio" id="position" name="select-filter" value="3">                
+                                <input type="radio" id="position" name="select-filter" value="3"> 
+                                <input name="receive-text" type="text" placeholder="digite aqui..." />
+                                               
                                 <button id="apply_button" type="submit">Aplicar</button>
                             </div>
                         
@@ -156,13 +157,16 @@ class dixbpo_filter_solution
                              <form method="POST">
 
                              <div id="filter_fields">
+                                    <!-- <div id="border-field"> -->
+                                        <label for="name">Nome</label>
+                                        <input type="radio" id="name" name="select-filter" value="1">
+                                        <label for="chair">Cadeira</label>
+                                        <input type="radio" id="chair" name="select-filter" value="2">
+                                        <label for="position">Posição</label>
+                                        <input type="radio" id="position" name="select-filter" value="3">
+                                    <!-- </div> -->
                                 <input name="receive-text" type="text" placeholder="digite aqui..." />
-                                <label for="name">Nome</label>
-                                <input type="radio" id="name" name="select-filter" value="1">
-                                <label for="chair">Cadeira</label>
-                                <input type="radio" id="chair" name="select-filter" value="2">
-                                <label for="position">Posição</label>
-                                <input type="radio" id="position" name="select-filter" value="3">                
+                                             
                                 <button type="submit">Aplicar</button>
                             </div>
 
@@ -170,10 +174,10 @@ class dixbpo_filter_solution
                                  <?php foreach ($array as $key => $value) {
                 echo '<div>';
                 $aux = str_replace('#038;', '', $array[$key]->guid);
-                echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(120,200))."</a></p>";
+                echo "<p id='img-style'><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(150,150),array("align" => 'middle'))."</a></p>";
                 echo '<p class="filter-title"><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
-                echo '<p class="filter-title">Cadeira: '.$array[$key]->cadeiras.'</p>';
-                echo '<p class="filter-title">Posição: ';
+                echo '<p class="filter-title-propertie">Cadeira: '.$array[$key]->cadeiras.'</p>';
+                echo '<p class="filter-title-propertie">Posição: ';
                 echo  $array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes;
                 echo '</p>';
                 echo '</div>';
@@ -192,8 +196,9 @@ class dixbpo_filter_solution
             <script>
             $(document).ready(function() {
                 var x = $('#filter_result').get();
-                x.css('background-color','yellow');
+                
                 $(x).appendTo('#teste1234');
+                // $($('#filter_result').css('display','flex').get()).appendTo('#teste1234');
 
             });
             </script>

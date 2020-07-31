@@ -1,6 +1,11 @@
 #filter_fields{
     max-width: 800px;
     display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    text-align: right;
 }
 #filter_fields > label{
   margin-top: 5px;
@@ -20,23 +25,26 @@
 
 }
 #flex_Image > div{
-    flex: 1 1 200px;
-    margin: 10px;
-    max-width: 200px;
-   
+    flex: 1 1 266px;
+    /* margin: 10px; */
+    max-width: 266px;
+    margin-bottom: 40px;
 }
 #flex_Image > div > p {
     text-align: center;
-    
+    margin-bottom: -5px;
 }
 #flex_Image > div > p > a > img {
 border-style: solid;
 border-width: 2px;
 border-radius: 0.2em;
-width: 120px;
-height: 200px;
-max-width: 120px;
-max-height: 200px;
+width: 150px;
+height: 150px;
+max-width: 150px;
+max-height: 150px;
+left: 22%;
+/* margin-right: -20%; */
+position: relative;
 }
 #filter_fields{
     max-width: 800px;
@@ -57,4 +65,10 @@ max-height: 200px;
 .filter-title{
     font-weight: bold;
     font-size: 18px;
+    margin-top: 15px;
+}
+.filter-title-propertie{
+    font-weight: bold;
+    font-size: 15;
+    color: rgb(90, 87, 87);
 }
