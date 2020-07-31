@@ -35,7 +35,7 @@ class dixbpo_filter_solution
             
             if ($input != '' && $input2 == '1') {
                 $aux = 'AND wp_posts.post_title LIKE "%'.$input.'%"';
-                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                      FROM wp_posts 
                      JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -58,7 +58,7 @@ class dixbpo_filter_solution
                 }
             } elseif ($input != '' && $input2 == '2') {
                 $aux = 'AND cadeiras.meta_value LIKE "%'.$input.'%"';
-                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                      FROM wp_posts 
                      JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -80,7 +80,7 @@ class dixbpo_filter_solution
                 }
             } elseif ($input != '' && $input2 == '3') {
                 $aux = 'AND posicoes.meta_value LIKE "%'.$input.'%" OR posicaocadeira.meta_value LIKE "%'.$input.'%" ';
-                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                      FROM wp_posts 
                      JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
