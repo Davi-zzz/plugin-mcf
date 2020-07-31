@@ -227,7 +227,7 @@ class dixbpo_filter_solution
                 echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(120,200))."</a></p>";
                 echo '<p class="filter-title"><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
                 echo '<p class="filter-title">Cadeira: '.$array[$key]->cadeiras.'</p>';
-                echo '<p class="filter-title"> Posição'.$array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes.'</p>';
+                echo '<p class="filter-title">Posição: '.$array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes.'</p>';
                 echo '</div>';
             } ?>
                     </div>
