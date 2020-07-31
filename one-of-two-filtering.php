@@ -48,12 +48,12 @@ class dixbpo_filter_solution
                 
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca </p>"; 
+                    echo "<p> Não foi encontrado nenhum resultado na busca </p>";
                     self::display_fields($results, 1);
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
-                    $query->the_post(); 
+                    $query->the_post();
                     self::display_fields($results, 2);
                 }
             } elseif ($input != '' && $input2 == '2') {
@@ -70,12 +70,12 @@ class dixbpo_filter_solution
                 $results = $wpdb -> get_results($sql);
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>"; 
+                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                     self::display_fields($results, 1);
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
             
-                    $query->the_post(); 
+                    $query->the_post();
                     self::display_fields($results, 2);
                 }
             } elseif ($input != '' && $input2 == '3') {
@@ -113,21 +113,20 @@ class dixbpo_filter_solution
                 
                 $results = $wpdb -> get_results($sql);
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>"; 
+                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
                     self::display_fields($results, 1);
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
-                    $query->the_post(); 
+                    $query->the_post();
                     self::display_fields($results, 2);
-                             
                 }
             }
         }
     }
-    public static function display_fields($array, $tipo){
-
-        if($tipo == 1){
+    public static function display_fields($array, $tipo)
+    {
+        if ($tipo == 1) {
             ?>
             <style>
                  #filter_fields{
@@ -137,9 +136,14 @@ class dixbpo_filter_solution
                     #filter_fields > label{
                         margin-top: 5px;
                     }
-                    #filter_fields > input{
-                        margin-top: 5px;
-                    }
+                    #filter_fields > input[type="radio"]{
+                        margin-top: 11px;
+                        margin-left: 4px;
+                        margin-right: 5px;
+                     } 
+                    
+
+                    
             </style>
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
@@ -151,7 +155,7 @@ class dixbpo_filter_solution
                                 <input type="radio" id="chair" name="select-filter" value="2">
                                 <label for="position">Posição</label>
                                 <input type="radio" id="position" name="select-filter" value="3">                
-                                <button type="submit">Aplicar</button>
+                                <button id="apply_button" type="submit">Aplicar</button>
                             </div>
                         
                   
@@ -159,9 +163,8 @@ class dixbpo_filter_solution
             
             </div>
             <?php
-        }else{
-                
-                        ?>
+        } else {
+            ?>
                             <style>
                                 #flex_Image{
                                     display: flex;
@@ -183,8 +186,9 @@ class dixbpo_filter_solution
                                 #flex_Image > div > img {
                                 display: block;
                                 margin 0 auto;
+                                border: 50px, solid, #000;
+                                
 
-                                    
                                 }
                                 #filter_fields{
                                     max-width: 800px;
@@ -192,11 +196,14 @@ class dixbpo_filter_solution
                                 }
                                 #filter_fields > label{
                                     margin-top: 5px;
+
                                 }
-                                #filter_fields > input{
-                                    margin-top: 5px;
-                                }
-                                
+                                #filter_fields > input[type="radio"]{
+                                    margin-top: 11px;
+                                    margin-left: 4px;
+                                    margin-right: 5px;
+                                } 
+
                             </style>
 
                              <div id="filter_result" class="entry-content post-inner thin ">
@@ -204,14 +211,14 @@ class dixbpo_filter_solution
                              <form method="POST">
                              <div id="flex_Image">
                                  <?php foreach ($array as $key => $value) {
-                                    echo '<div>';
-                                    $aux = str_replace('#038;', '', $array[$key]->guid);
-                                    echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a></p>";
-                                    echo '<p><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
-                                    echo '<p>'.$array[$key]->posicaocadeira.'</p>';
-                                    echo '<p>'.$array[$key]->posicoes.'</p>';
-                                    echo '</div>';
-                    } ?>
+                echo '<div>';
+                $aux = str_replace('#038;', '', $array[$key]->guid);
+                echo "<p><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(100,100))."</a></p>";
+                echo '<p><a href="'.$aux.'">'.$array[$key]->post_title.'</a></p>';
+                echo '<p>'.$array[$key]->posicaocadeira.'</p>';
+                echo '<p>'.$array[$key]->posicoes.'</p>';
+                echo '</div>';
+            } ?>
                     </div>
                             <div id="filter_fields">
                                 <input name="receive-text" type="text" placeholder="digite aqui..." />
@@ -242,7 +249,6 @@ class dixbpo_filter_solution
             </script>
             <?php
         }
-
     }
 }
 //**nyan~desu */
