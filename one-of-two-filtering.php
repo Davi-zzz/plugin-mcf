@@ -134,17 +134,20 @@ class dixbpo_filter_solution
                         max-width: 800px;
                         display: flex;
                     }
+                    #filter_fields > label{
+                        margin-top: 5px;
+                    }
             </style>
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
                             <div id="filter_fields">
+                                <input name="receive-text" type="text" placeholder="digite aqui..." />
                                 <label for="name">Nome</label>
                                 <input type="radio" id="name" name="select-filter" value="1">
                                 <label for="chair">Cadeira</label>
                                 <input type="radio" id="chair" name="select-filter" value="2">
                                 <label for="position">Posição</label>
                                 <input type="radio" id="position" name="select-filter" value="3">                
-                                <input name="receive-text" type="text" placeholder="digite aqui..." />
                                 <button type="submit">Aplicar</button>
                             </div>
                         
@@ -184,6 +187,9 @@ class dixbpo_filter_solution
                                     max-width: 800px;
                                     display: flex;
                                 }
+                                #filter_fields > label{
+                                    margin-top: 5px;
+                                }
                                 
                             </style>
 
@@ -202,13 +208,13 @@ class dixbpo_filter_solution
                     } ?>
                     </div>
                             <div id="filter_fields">
+                                <input name="receive-text" type="text" placeholder="digite aqui..." />
                                 <label for="name">Nome</label>
                                 <input type="radio" id="name" name="select-filter" value="1">
                                 <label for="chair">Cadeira</label>
                                 <input type="radio" id="chair" name="select-filter" value="2">
                                 <label for="position">Posição</label>
                                 <input type="radio" id="position" name="select-filter" value="3">                
-                                <input name="receive-text" type="text" placeholder="digite aqui..." />
                                 <button type="submit">Aplicar</button>
                             </div>
                       
