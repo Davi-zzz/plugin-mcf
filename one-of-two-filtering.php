@@ -160,6 +160,9 @@ class dixbpo_filter_solution
                                     flex: 1 1 200px;
                                     margin: 10px;
                                 }
+                                #flex_Image{
+                                    display: flex;
+                                }
                                 
                             </style>
 
