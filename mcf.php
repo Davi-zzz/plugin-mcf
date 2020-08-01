@@ -4,8 +4,7 @@ Plugin Name: DIXBPO CS-A
 Plugin URI: http://exemple.com
 Description: Plugin desenvolvido para Academia de Letras Palmense
 Version: 1.0
-Author: Davi-SM
-Author URI: https://www.linkedin.com/in/davi-silva-moraes-979595148/
+Author: <a href="https://www.linkedin.com/in/davi-silva-moraes-979595148/">Davi-SM, </a><a href=""https://www.linkedin.com/in/yhan-nunes-8666ba198/>Yhan Nunes</a>
 Text Domain: dixbpo_csa
 License: GPLv2
 */
