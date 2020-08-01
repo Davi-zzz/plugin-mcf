@@ -6,6 +6,7 @@
     margin-right: 20px;
     margin-bottom: 40px;
     text-align: right;
+
 }
 #filter_fields > label{
   margin-top: 5px;
@@ -71,4 +72,12 @@ position: relative;
     font-weight: bold;
     font-size: 15;
     color: rgb(90, 87, 87);
+}
+#apply-button{
+    transition-duration: 0.4;
+    cursor: pointer;
+}
+#apply-button:hover{
+    background-color: black; /* Green */
+    color: #8c4a0f;
 }
