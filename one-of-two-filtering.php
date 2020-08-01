@@ -103,7 +103,7 @@ class dixbpo_filter_solution
             } else {
                 $page = isset($_POST['pagination']) ?  $_POST['pagination'] :  '1';
                 $page = ($page - 1) * 9;
-                $aux = 'OFFSET '. $page;
+                $aux = 'OFFSET '.$page. ' ORDER BY wp_posts.id ASC';
                 
                 $sql = 'SELECT DISTINCT wp_posts.id as id , imagem.guid as imagem , wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras, posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                 FROM wp_posts 
@@ -196,12 +196,11 @@ class dixbpo_filter_solution
                 <div style="float: right;">
                     <form method="POST">
                 <ul style="display: inline; list-style-type: none">
-                    <li>
-                        <input name="pagination" type="submit" value="1" />
-                    </li>
-                    <li>
-                        <input name="pagination" type="submit" value="2" />
-                    </li>
+                    <?php for($i = 0; $i < ceil((count($array)+1)/9); $i++)
+                    echo '<li>';
+                    echo    '<input name="pagination" type="submit" value="'.($i+1).'" />';
+                    echo '</li>';
+                    ?>
                 </ul>
             </form>
             </div>
