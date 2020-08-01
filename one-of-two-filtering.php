@@ -35,7 +35,7 @@ class dixbpo_filter_solution
             
             if ($input != '' && $input2 == '1') {
                 $aux = 'AND wp_posts.post_title LIKE "%'.$input.'%"';
-                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.id as id,  wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                      FROM wp_posts 
                      JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -58,7 +58,7 @@ class dixbpo_filter_solution
                 }
             } elseif ($input != '' && $input2 == '2') {
                 $aux = 'AND cadeiras.meta_value LIKE "%'.$input.'%"';
-                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.id as id, wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                      FROM wp_posts 
                      JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -80,7 +80,7 @@ class dixbpo_filter_solution
                 }
             } elseif ($input != '' && $input2 == '3') {
                 $aux = 'AND posicoes.meta_value LIKE "%'.$input.'%" OR posicaocadeira.meta_value LIKE "%'.$input.'%" ';
-                $sql = 'SELECT DISTINCT wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT wp_posts.id as id, wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras,posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                      FROM wp_posts 
                      JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -103,9 +103,10 @@ class dixbpo_filter_solution
             } else {
                 $page = isset($_POST['pagination']) ?  $_POST['pagination'] :  '1';
                 $page = ($page - 1) * 9;
-                $aux = 'OFFSET '.$page. ' ORDER BY wp_posts.id ASC';
+                $aux = 'OFFSET '.$page;
                 
-                $sql = 'SELECT DISTINCT wp_posts.id as id , imagem.guid as imagem , wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras, posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
+                $sql = 'SELECT DISTINCT (SELECT COUNT(id) FROM wp_posts 
+                WHERE post_type = "membros" and post_status = "publish") as quantidade, wp_posts.id as id , imagem.guid as imagem , wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras, posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                 FROM wp_posts 
                 JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
                 JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
@@ -178,6 +179,7 @@ class dixbpo_filter_solution
 
                              <div id="flex_Image">
                                  <?php foreach ($array as $key => $value) {
+               
                 echo '<div>';
                 $aux = str_replace('#038;', '', $array[$key]->guid);
                 echo "<p id='img-style'><a href='".$aux."'>".get_the_post_thumbnail($array[$key]->id, array(150,150),array("align" => 'middle'))."</a></p>";
@@ -193,13 +195,15 @@ class dixbpo_filter_solution
                       
                 </form>
                 
-                <div style="float: right;">
+                <div style="float: center
+                ;">
                     <form method="POST">
-                <ul style="display: inline; list-style-type: none">
-                    <?php for($i = 0; $i < ceil((count($array)+1)/9); $i++)
+                <ul style="display: flex; list-style-type: none;">
+                    <?php for($i = 0; $i < ($array[0]->quantidade/9); $i++){
                     echo '<li>';
                     echo    '<input name="pagination" type="submit" value="'.($i+1).'" />';
                     echo '</li>';
+                    }
                     ?>
                 </ul>
             </form>
