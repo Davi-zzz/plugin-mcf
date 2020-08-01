@@ -145,7 +145,7 @@ class dixbpo_filter_solution
                                 <input type="radio" id="position" name="select-filter" value="3"> 
                                 <input name="receive-text" type="text" placeholder="digite aqui..." />
                                                
-                                <button id="apply_button" type="submit">Aplicar</button>
+                                <button type="submit">Aplicar</button>
                             </div>
                         
                   

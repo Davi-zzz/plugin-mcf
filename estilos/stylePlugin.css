@@ -73,11 +73,3 @@ position: relative;
     font-size: 15;
     color: rgb(90, 87, 87);
 }
-#apply-button{
-    transition-duration: 0.4;
-    cursor: pointer;
-}
-#apply-button:hover{
-    background-color: black; /* Green */
-    color: #8c4a0f;
-}
