@@ -103,7 +103,8 @@ class dixbpo_filter_solution
             } else {
                 $page = isset($_POST['pagination']) ?  $_POST['pagination'] :  '1';
                 $page = ($page - 1) * 9;
-                $aux = 'OFFSET'. $page .'ORDER BY wp_posts.post_title DESC';
+                $aux = 'OFFSET '. $page;
+                
                 $sql = 'SELECT DISTINCT wp_posts.id as id , imagem.guid as imagem , wp_posts.post_title, wp_posts.guid, cadeiras.meta_value as cadeiras, posicoes.meta_value as posicoes, posicaocadeira.meta_value as posicaocadeira
                 FROM wp_posts 
                 JOIN wp_postmeta ON (wp_posts.id = wp_postmeta.post_id)
@@ -112,7 +113,7 @@ class dixbpo_filter_solution
                 JOIN wp_postmeta as posicaocadeira on (wp_posts.id = posicaocadeira.post_id AND posicaocadeira.meta_key = "posicaocadeira")
                 LEFT JOIN wp_posts as imagem on (wp_posts.id = imagem.post_parent AND imagem.post_type = "attachment")
                 WHERE (wp_posts.post_type = "membros" AND wp_posts.post_status = "publish") 
-                LIMIT 9';
+                LIMIT 9 ';
                 $sql = $sql . $aux;
 
                 
@@ -191,10 +192,9 @@ class dixbpo_filter_solution
 
                       
                 </form>
-            
-        </div>
-            <div style="float: right;">
-            <form method="POST">
+                
+                <div style="float: right;">
+                    <form method="POST">
                 <ul style="display: inline; list-style-type: none">
                     <li>
                         <input name="pagination" type="submit" value="1" />
@@ -205,6 +205,9 @@ class dixbpo_filter_solution
                 </ul>
             </form>
             </div>
+            
+        </div>
+           
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                 integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
                 crossorigin="anonymous"></script>
