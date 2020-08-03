@@ -71,7 +71,7 @@ class dixbpo_filter_solution
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
                     self::display_fields($results, 1);
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
+                     
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
             
@@ -93,7 +93,7 @@ class dixbpo_filter_solution
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
                     self::display_fields($results, 1);
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
+                     
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
@@ -121,7 +121,7 @@ class dixbpo_filter_solution
                 $results = $wpdb -> get_results($sql);
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
                     self::display_fields($results, 1);
-                    echo "<p> Não foi encontrado nenhum resultado na busca</p>";
+                    
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
@@ -152,9 +152,33 @@ class dixbpo_filter_solution
                         
                   
                 </form>
+               
+               <p style="text-align: center"> Não foi encontrado nenhum resultado na busca</p>
             
             </div>
+           
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+                integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+                crossorigin="anonymous"></script>
+
+            <script>
+           $(window).on('load', function () {
+            $('.loader').fadeOut();
+            $('.loader ').delay(350).fadeOut('slow'); 
+            $('body').delay(350).css({'overflow': 'visible'});
+            })
+                $(document).ready(function() {
+                        
+                        var x = $('#filter_result').get();
+                        
+                        $(x).appendTo('#teste1234');
+                        
+                        
+
+                    });
+            </script>
             <?php
+
         } else {
             ?>
                            
@@ -189,7 +213,8 @@ class dixbpo_filter_solution
                 echo  $array[$key]->posicoes == null ||$array[$key]->posicoes == '' ? $array[$key]->posicaocadeira : $array[$key]->posicoes;
                 echo '</p>';
                 echo '</div>';
-            } ?>
+            } 
+                ?>
                     </div>
 
                       
@@ -220,16 +245,16 @@ class dixbpo_filter_solution
             $('.loader').fadeOut();
             $('.loader ').delay(350).fadeOut('slow'); 
             $('body').delay(350).css({'overflow': 'visible'});
-})
-           $(document).ready(function() {
-                
-                var x = $('#filter_result').get();
-                
-                $(x).appendTo('#teste1234');
-                
-                
+            })
+                $(document).ready(function() {
+                        
+                        var x = $('#filter_result').get();
+                        
+                        $(x).appendTo('#teste1234');
+                        
+                        
 
-            });
+                    });
             </script>
             <?php
         }

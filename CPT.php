@@ -30,7 +30,7 @@ class CPT{
         $args = array(
                 'labels' => $labels,
                 'public' => true,
-                'publicly_queryable' => true,
+                'publicly_queryable' => true,   
                 'show_ui' => true,
                 'query_var' => true,
                 'menu_icon' => 'dashicons-book-alt',
