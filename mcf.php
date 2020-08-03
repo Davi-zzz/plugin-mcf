@@ -37,6 +37,7 @@ class dixbpo_csa_new
         });
         add_action('save_post', 'dixbpo_csa_new::save_details');
         add_action("admin_init", "dixbpo_csa_new::admin_init");
+        add_action( 'init', 'dixbpo_csa_new::force_post_title');
     }
 
     public static function admin_init()
@@ -79,7 +80,7 @@ class dixbpo_csa_new
      <div id="CF1" style="display: flex"> 
         <label style="font-size: 20px;align-self: center; margin-right: 10px;">Cadeiras:<u style="font-size: 20px"></u></label><br />
         
-        <select placeholder="Selecione a Cadeira" style="width: 30%; height: 50%; align-self: center;" name='cadeiras' id='cadeiras'>
+        <select placeholder="Selecione a Cadeira" style="width: 30%; height: 50%; align-self: center;" name='cadeiras' id='cadeiras' required>
         <?php
             if ($cadeiras == null) {
                 echo '<option value selected >Selecione a Cadeira</option>';
@@ -130,7 +131,7 @@ class dixbpo_csa_new
         </select>
         <label style="font-size: 20px;  align-self: center; margin-right: 10px; margin-left: 10px;">Posições: </label><br/>
         
-        <select style="width: 30%; height: 50%; align-self: center  " name='posicoes' id='posicoes'> 
+        <select style="width: 30%; height: 50%; align-self: center  " name='posicoes' id='posicoes' required> 
         <?php
             if ($posicoes == null) {
                 echo '<option value selected >Selecione a Posição</option>';
@@ -146,7 +147,7 @@ class dixbpo_csa_new
         </select>
 
         <br><label style="font-size: 20px; align-self: center; margin-right: 10px; margin-left: 10px; display: table">Insira sua vez na Cadeira:</label>
-        <input type="number" style="width: 30%; height: 50%; align-self: center;" name="posicaocadeira" id='posicoes' min="1" value=<?php echo $posicaocadeira ?>></input></br>
+        <input type="number" style="width: 30%; height: 50%; align-self: center;" name="posicaocadeira" id='posicoes' min="1" value=<?php echo $posicaocadeira ?> required></input></br>
 
     </div>
         <?php
@@ -173,5 +174,29 @@ class dixbpo_csa_new
         update_post_meta($post->ID, "link_sucessor", $_POST["link_sucessor"]);
         update_post_meta($post->ID, "posicaocadeira", $_POST["posicaocadeira"]);
     }
+    public static function force_post_title(){
+        
+        ?>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+                integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+                crossorigin="anonymous"></script>
+
+                <script>$(document).ready(function(){
+                   
+                   $('#title').attr('required' , 'required');
+
+
+
+
+                });</script>
+
+
+
+
+
+                <?php
+    }
+
 }
 dixbpo_csa_new::getInstance();

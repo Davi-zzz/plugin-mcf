@@ -38,7 +38,7 @@ class CPT{
                 'capability_type' => 'post',
                 'hierarchical' => false,
                 'menu_position' => null,
-                'supports' => array('title', 'editor', 'excerpt', 'author', 'revisions','custom-fiels', 'thumbnail','post-formats'),
+                'supports' => array('title', 'editor', 'excerpt', 'author', 'revisions','custom-fiels', 'thumbnail','post-formats', 'page-attributes'),
               );
         
         register_post_type('membros', $args);
