@@ -49,7 +49,7 @@ class dixbpo_filter_solution
                 
                 if (sizeof($results = $wpdb -> get_results($sql)) == 0) {
                     self::display_fields($results, 1);
-                    echo "<p> Não foi encontrado nenhum resultado na busca </p>";
+                   
                 } else {
                     $query = new WP_Query(array( 'post_type' => 'membros' ));
      
