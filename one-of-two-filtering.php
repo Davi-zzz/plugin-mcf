@@ -220,7 +220,8 @@ class dixbpo_filter_solution
                 var x = $('#filter_result').get();
                 
                 $(x).appendTo('#teste1234');
-                // $($('#filter_result').css('display','flex').get()).appendTo('#teste1234');
+                
+                $('#filter_result').css('display', 'flex');
 
             });
             </script>

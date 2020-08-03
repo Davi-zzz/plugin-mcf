@@ -1,6 +1,6 @@
 #filter_fields{
     max-width: 800px;
-    display: flex;
+    display: none;
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
