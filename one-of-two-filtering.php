@@ -188,14 +188,14 @@ class dixbpo_filter_solution
                              <form method="POST">
 
                              <div id="filter_fields">
-                                    <!-- <div id="border-field"> -->
+                                   
                                         <label for="name">Nome</label>
                                         <input type="radio" id="name" name="select-filter" value="1">
                                         <label for="chair">Cadeira</label>
                                         <input type="radio" id="chair" name="select-filter" value="2">
                                         <label for="position">Posição</label>
                                         <input type="radio" id="position" name="select-filter" value="3">
-                                    <!-- </div> -->
+                                    
                                 <input name="receive-text" type="text" placeholder="digite aqui..." />
                                              
                                 <button type="submit">Aplicar</button>
