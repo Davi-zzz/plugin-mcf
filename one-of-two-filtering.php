@@ -135,7 +135,7 @@ class dixbpo_filter_solution
     {
         if ($tipo == 1) {
             ?>
-            
+        <div id="loader" class="loader"></div>
             <div id="filter_result" class="entry-content post-inner thin" style="width:100%">
                 <form method="POST">
                             <div id="filter_fields">
@@ -158,7 +158,7 @@ class dixbpo_filter_solution
         } else {
             ?>
                            
-
+                           <div id="loader" class="loader"></div>
                              <div id="filter_result" class="entry-content post-inner thin ">
 
                              <form method="POST">
@@ -216,12 +216,18 @@ class dixbpo_filter_solution
                 crossorigin="anonymous"></script>
 
             <script>
-            $(document).ready(function() {
+           $(window).on('load', function () {
+            $('.loader').fadeOut();
+            $('.loader ').delay(350).fadeOut('slow'); 
+            $('body').delay(350).css({'overflow': 'visible'});
+})
+           $(document).ready(function() {
+                
                 var x = $('#filter_result').get();
                 
                 $(x).appendTo('#teste1234');
                 
-                $('#filter_result').css('display', 'flex');
+                
 
             });
             </script>
