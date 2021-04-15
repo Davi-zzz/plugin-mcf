@@ -145,7 +145,7 @@ class dixbpo_csa_new
             } ?>
         
         <option value="">--</option>
-        <option value="Atual">Atual</option>
+        <option value="Membro Efetivo">Membro Efetivo</option>
         <option value="Patrono">Patrono</option>
         <option value="Fundador">Fundador</option>
                            

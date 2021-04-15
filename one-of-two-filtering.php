@@ -64,7 +64,8 @@ class dixbpo_filter_solution
                      JOIN wp_postmeta as cadeiras on (wp_posts.id = cadeiras.post_id AND cadeiras.meta_key ="cadeiras") 
                      JOIN wp_postmeta as posicoes on (wp_posts.id = posicoes.post_id AND posicoes.meta_key = "posicoes")
                      JOIN wp_postmeta as posicaocadeira on (wp_posts.id = posicaocadeira.post_id AND posicaocadeira.meta_key = "posicaocadeira")
-                     WHERE (wp_posts.post_type = "membros" AND wp_posts.post_status = "publish")';
+                     WHERE (wp_posts.post_type = "membros" AND wp_posts.post_status = "publish")
+                     ORDER BY cadeiras';
                      
                 $sql = $sql.$aux;
                 $results = $wpdb -> get_results($sql);
@@ -113,7 +114,8 @@ class dixbpo_filter_solution
                 JOIN wp_postmeta as posicoes on (wp_posts.id = posicoes.post_id AND posicoes.meta_key = "posicoes")
                 JOIN wp_postmeta as posicaocadeira on (wp_posts.id = posicaocadeira.post_id AND posicaocadeira.meta_key = "posicaocadeira")
                 LEFT JOIN wp_posts as imagem on (wp_posts.id = imagem.post_parent AND imagem.post_type = "attachment")
-                WHERE (wp_posts.post_type = "membros" AND wp_posts.post_status = "publish") 
+                WHERE (wp_posts.post_type = "membros" AND wp_posts.post_status = "publish")
+                ORDER BY cadeiras ASC 
                 LIMIT 9 ';
                 $sql = $sql . $aux;
 
